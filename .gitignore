@@ -1,0 +1,79 @@
+##############################################
+# FiveM Server - .gitignore
+##############################################
+
+### Fichiers système FiveM ###
+alpine/
+cache/
+txData/
+run.sh
+
+### Configuration sensible ###
+server_private.cfg
+server.cfg.bkp
+.env
+*.key
+*.pem
+*.crt
+
+.replxx_history
+
+### Credentials & Secrets ###
+*password*
+*secret*
+*token*
+*license*
+*apikey*
+
+### Logs ###
+*.log
+logs/
+server.log
+txadmin.log
+
+### Base de données ###
+*.sql
+*.sql.gz
+*.db
+*.sqlite
+
+### Backups ###
+backups/
+backup_*/
+*.backup
+*.bak
+*~
+
+### Node modules (si tu utilises des ressources Node) ###
+node_modules/
+package-lock.json
+yarn.lock
+
+### Fichiers temporaires ###
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+### Builds & dist (code compilé) ###
+# Attention: certains scripts ont besoin de leur dist/
+# À adapter selon tes ressources
+# dist/
+# build/
+
+### Screenshots & médias volumineux ###
+screenshots/
+*.mp4
+*.avi
+*.mov
+
+### Développement local ###
+.vscode/
+.idea/
+*.code-workspace
+
+### Git ###
+.git/
