@@ -729,16 +729,6 @@ ESX.RegisterCommand(
     }
 )
 
-ESX.RegisterCommand("noclip", "admin", function(xPlayer)
-    xPlayer.triggerEvent("esx:noclip")
-    if Config.AdminLogging then
-        ESX.DiscordLogFields("UserActions", "Admin NoClip /noclip Triggered!", "pink", {
-            { name = "Player", value = xPlayer and xPlayer.name or "Server Console", inline = true },
-            { name = "ID", value = xPlayer and xPlayer.source or "Unknown ID", inline = true },
-        })
-    end
-end, false)
-
 ESX.RegisterCommand("players", "admin", function()
     local xPlayers = ESX.GetExtendedPlayers() -- Returns all xPlayers
     print(("^5%s^2 online player(s)^0"):format(#xPlayers))
