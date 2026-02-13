@@ -19,4 +19,6 @@ add_ace group.admin command.quit deny # but don't allow quit
 add_principal identifier.fivem: group.admin #fivem:VotreID
 add_principal identifier.discord: group.admin # discord:VotreID
 
-et mysql_connection_string "user=root;password=12345;host=localhost;port=3306;database=fivem"
+ET :
+ 
+mysql_connection_string "user=root;password=12345;host=localhost;port=3306;database=fivem"
