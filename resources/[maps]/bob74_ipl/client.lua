@@ -44,7 +44,7 @@ CreateThread(function()
     UFO.Zancudo.Enable(false) -- -2051.99463, 3237.05835, 1456.97021
 
     -- Red Carpet: 300.5927, 199.7589, 104.3776
-    RedCarpet.Enable(false)
+    RedCarpet.Enable(true)
 
     -- North Yankton: 3217.697, -4834.826, 111.8152
     NorthYankton.Enable(false)
