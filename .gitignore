@@ -6,6 +6,7 @@
 alpine/
 cache/
 txData/
+db/
 run.sh
 
 ### Configuration sensible ###
