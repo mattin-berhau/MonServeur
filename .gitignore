@@ -9,6 +9,9 @@ txData/
 db/
 run.sh
 
+resources/\[dev\]/
+resources/\[graphics\]/
+
 ### Configuration sensible ###
 server_private.cfg
 server.cfg.bkp
