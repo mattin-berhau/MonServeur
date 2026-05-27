@@ -12,6 +12,7 @@ if cache.game == 'redm' then return end
 ---@field model? number
 ---@field plate? string
 ---@field plateIndex? number
+---@field lockState? number
 ---@field bodyHealth? number
 ---@field engineHealth? number
 ---@field tankHealth? number
@@ -202,6 +203,7 @@ function lib.getVehicleProperties(vehicle)
             model = GetEntityModel(vehicle),
             plate = GetVehicleNumberPlateText(vehicle),
             plateIndex = GetVehicleNumberPlateTextIndex(vehicle),
+            lockState = GetVehicleDoorLockStatus(vehicle),
             bodyHealth = math.floor(GetVehicleBodyHealth(vehicle) + 0.5),
             engineHealth = math.floor(GetVehicleEngineHealth(vehicle) + 0.5),
             tankHealth = math.floor(GetVehiclePetrolTankHealth(vehicle) + 0.5),
@@ -293,6 +295,8 @@ function lib.getVehicleProperties(vehicle)
     end
 end
 
+local setLockState = GetConvarBool('ox:setLockState', false)
+
 ---@param vehicle number
 ---@param props VehicleProperties
 ---@param fixVehicle? boolean Fix the vehicle after props have been set. Usually required when adding extras.
@@ -320,6 +324,10 @@ function lib.setVehicleProperties(vehicle, props, fixVehicle)
 
     if props.plateIndex then
         SetVehicleNumberPlateTextIndex(vehicle, props.plateIndex)
+    end
+
+    if props.lockState ~= nil and setLockState then
+        SetVehicleDoorsLocked(vehicle, props.lockState)
     end
 
     if props.bodyHealth then
@@ -644,8 +652,8 @@ function lib.setVehicleProperties(vehicle, props, fixVehicle)
         SetVehicleTyresCanBurst(vehicle, props.bulletProofTyres)
     end
 
-    if gameBuild >= 2372 and props.driftTyres then
-        SetDriftTyresEnabled(vehicle, true)
+    if gameBuild >= 2372 and props.driftTyres ~= nil then
+        SetDriftTyresEnabled(vehicle, props.driftTyres)
     end
 
     if fixVehicle then
